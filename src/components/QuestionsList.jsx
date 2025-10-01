@@ -3,11 +3,11 @@ import Question from './Question';
 
 const QuestionsList = ({ list }) => {
   return (
-    <article>
+    <sction>
       {list.map((question) => {
         return <Question key={question.id} {...question} />;
       })}
-    </article>
+    </sction>
   );
 };
 
