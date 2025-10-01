@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 
-const Question = ({ title, info }) => {
-  const [toggle, setToggle] = useState(false);
+const Question = ({ id, title, info, activeId, toggleQuestion }) => {
+  const isActive = id === activeId;
+  // const [toggle, setToggle] = useState(false);
 
-  const buttonToggle = () => {
-    setToggle(!toggle);
-  };
+  // const buttonToggle = () => {
+  //   setToggle(!toggle);
+  // };
 
   return (
     <article className="question">
       <header>
         <h5>{title}</h5>
-        <button type="button" className="question-btn" onClick={buttonToggle}>
-          {toggle ? <AiOutlineMinus /> : <AiOutlinePlus />}
+        <button type="button" className="question-btn" onClick={() => toggleQuestion(id)}>
+          {isActive ? <AiOutlineMinus /> : <AiOutlinePlus />}
         </button>
       </header>
-      {toggle && <p>{info}</p>}
+      {isActive && <p>{info}</p>}
     </article>
   );
 };

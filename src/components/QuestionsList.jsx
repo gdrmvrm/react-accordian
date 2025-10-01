@@ -1,13 +1,13 @@
 import React from 'react';
 import Question from './Question';
 
-const QuestionsList = ({ list }) => {
+const QuestionsList = ({ list, activeId, toggleQuestion }) => {
   return (
-    <sction>
+    <section>
       {list.map((question) => {
-        return <Question key={question.id} {...question} />;
+        return <Question key={question.id} {...question} activeId={activeId} toggleQuestion={toggleQuestion} />;
       })}
-    </sction>
+    </section>
   );
 };
 
